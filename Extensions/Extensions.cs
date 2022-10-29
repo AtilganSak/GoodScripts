@@ -14,6 +14,23 @@ public static class Extensions
 {
     private static System.Random mRandom = new System.Random();
 
+    #region String
+    public static string ConvertSecondsToFormattedTimeString(float seconds)
+    {
+        TimeSpan time = TimeSpan.FromSeconds(seconds);
+        return time.ToString(@"mm\:ss");
+    }
+    public static string Triming(string text)
+    {
+        string newText = string.Join(" ", text.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries));
+        return newText;
+    }
+    public static string Triming(string text, string sperator, string targetChar)
+    {
+        string newText = string.Join(sperator.ToString(), text.Split(new string[] { targetChar.ToString() }, StringSplitOptions.RemoveEmptyEntries));
+        return newText;
+    }
+    #endregion
     #region Color
     public static void SetAlpha(this Color color, float alpha)
     {
