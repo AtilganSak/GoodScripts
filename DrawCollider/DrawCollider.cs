@@ -6,6 +6,7 @@ public enum Shape
     Sphere,
     Mesh
 }
+
 public class DrawCollider : MonoBehaviour
 {
     [SerializeField] Shape shape;
