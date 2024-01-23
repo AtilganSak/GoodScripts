@@ -39,6 +39,9 @@ public class MemoryTime
 
     const string API_URL = "time.nist.gov";
 
+    public Action onStarted;
+    public Action<bool> onPaused;
+    public Action onStopped;
     public Action onCompleted;
 
     string STARTED_TIME_KEY
@@ -80,6 +83,8 @@ public class MemoryTime
     {
         paused = !paused;
         isRunning = !paused;
+
+        onPaused?.Invoke(paused);
     }
     public void StartTimer()
     {
@@ -87,6 +92,8 @@ public class MemoryTime
 
         isFinished = false;
         isRunning = true;
+
+        onStarted?.Invoke();    
 
         if (!PlayerPrefs.HasKey(STARTED_TIME_KEY) && !indepentTime)
         {
@@ -122,6 +129,8 @@ public class MemoryTime
         {
             isRunning = false;
             currentTime = time;
+
+            onStopped?.Invoke();    
         }
     }
     public void Reset()

@@ -19,6 +19,10 @@ public class MemoryTimeTest : MonoBehaviour
     }
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            memoryTime.StartTimer();
+        }
         if (Input.GetKeyDown(KeyCode.S))
         {
             memoryTime.StopTimer();
