@@ -18,7 +18,7 @@ public struct EasyNumber
                 Combine();
 
             return _value;
-        }        
+        }
         set { _value = value; }
     }
 
@@ -48,43 +48,76 @@ public struct EasyNumber
     #region Operators    
     public static EasyNumber operator +(EasyNumber a, double b)
     {
-        a._value += b;
+        a.Value += b;
         return a;
     }
     public static EasyNumber operator -(EasyNumber a, double b)
     {
-        a._value -= b;
+        a.Value -= b;
         return a;
     }
     public static EasyNumber operator *(EasyNumber a, double b)
     {
-        a._value *= b;
+        a.Value *= b;
         return a;
     }
     public static EasyNumber operator /(EasyNumber a, double b)
     {
-        a._value /= b;
+        a.Value /= b;
         return a;
     }
+    public static bool operator >(EasyNumber a, double b)
+    {
+        return a.Value > b;
+    }
+    public static bool operator <(EasyNumber a, double b)
+    {
+        return a.Value < b;
+    }
+    public static bool operator >=(EasyNumber a, double b)
+    {
+        return a.Value >= b;
+    }
+    public static bool operator <=(EasyNumber a, double b)
+    {
+        return a.Value <= b;
+    }
+
     public static EasyNumber operator +(EasyNumber a, EasyNumber b)
     {
-        a._value += b._value;
+        a.Value += b.Value;
         return a;
     }
     public static EasyNumber operator -(EasyNumber a, EasyNumber b)
     {
-        a._value -= b._value;
+        a.Value -= b.Value;
         return a;
     }
     public static EasyNumber operator *(EasyNumber a, EasyNumber b)
     {
-        a._value *= b._value;
+        a.Value *= b.Value;
         return a;
     }
     public static EasyNumber operator /(EasyNumber a, EasyNumber b)
     {
-        a._value /= b._value;
+        a.Value /= b.Value;
         return a;
+    }
+    public static bool operator >(EasyNumber a, EasyNumber b)
+    {
+        return a.Value > b.Value;
+    }
+    public static bool operator <(EasyNumber a, EasyNumber b)
+    {
+        return a.Value < b.Value;
+    }
+    public static bool operator >=(EasyNumber a, EasyNumber b)
+    {
+        return a.Value >= b.Value;
+    }
+    public static bool operator <=(EasyNumber a, EasyNumber b)
+    {
+        return a.Value <= b.Value;
     }
     #endregion
 }
