@@ -10,6 +10,8 @@ public class MemoryTime
 {
     [Tooltip("The key used for registration. Make sure you use a unique key. (Saving PlayerPrefs)")]
     [SerializeField] string key;
+    public string Key { get { return key; } }
+
     [Tooltip("Start time for process.")]
     public float time;
     [Tooltip("If there is internet it uses API time, otherwise it uses local time.")]
@@ -90,10 +92,13 @@ public class MemoryTime
     {
         if (isRunning) return;
 
+        if (currentTime == 0)
+            currentTime = time;
+
         isFinished = false;
         isRunning = true;
 
-        onStarted?.Invoke();    
+        onStarted?.Invoke();
 
         if (!PlayerPrefs.HasKey(STARTED_TIME_KEY) && !indepentTime)
         {
@@ -130,7 +135,7 @@ public class MemoryTime
             isRunning = false;
             currentTime = time;
 
-            onStopped?.Invoke();    
+            onStopped?.Invoke();
         }
     }
     public void Reset()
@@ -173,7 +178,7 @@ public class MemoryTime
             currentTime = time;
         }
         onLoadedTime?.Invoke();
-    }    
+    }
     private void GetInternetTime(Action<DateTime> callback)
     {
         // Try get time from internet
@@ -222,10 +227,10 @@ public class MemoryTime
     public override string ToString()
     {
         if (currentTime > 3600)
-            return TimeSpan.FromSeconds(currentTime).ToString(@"hh\:mm\:ss");
+            return TimeSpan.FromSeconds(Mathf.Floor(currentTime)).ToString(@"hh\:mm\:ss");
         else if (currentTime > 59)
-            return TimeSpan.FromSeconds(currentTime).ToString(@"mm\:ss");
+            return TimeSpan.FromSeconds(Mathf.Floor(currentTime)).ToString(@"mm\:ss");
         else
-            return currentTime.ToString();
+            return Mathf.Floor(currentTime).ToString();
     }
 }
