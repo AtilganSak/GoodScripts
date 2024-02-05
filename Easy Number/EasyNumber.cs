@@ -9,7 +9,7 @@ public struct EasyNumber
 
     bool isCombined;
 
-    private double _value;
+    [SerializeField, HideInInspector] double _value;
     public double Value
     {
         get
@@ -19,7 +19,12 @@ public struct EasyNumber
 
             return _value;
         }
-        set { _value = value; }
+        set
+        {
+            _value = value;
+            if (!isCombined)
+                Combine();
+        }
     }
 
     public override string ToString()
