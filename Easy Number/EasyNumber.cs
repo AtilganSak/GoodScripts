@@ -1,6 +1,14 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
+public class EasyNumberComparer : IComparer<EasyNumber>
+{
+    public int Compare(EasyNumber x, EasyNumber y)
+    {
+        return x.Value.CompareTo(y.Value);
+    }
+}
 [System.Serializable]
 public struct EasyNumber
 {
@@ -50,6 +58,7 @@ public struct EasyNumber
         steps = null;
         _value = 0;
     }
+
     #region Operators    
     public static EasyNumber operator +(EasyNumber a, double b)
     {
