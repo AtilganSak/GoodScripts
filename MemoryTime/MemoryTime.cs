@@ -200,8 +200,6 @@ public class MemoryTime
     }
     private void CheckTimeDifference(DateTime nowDate)
     {
-        Debug.Log("Now Data: " + nowDate);
-
         string serializedDateTime = PlayerPrefs.GetString(STARTED_TIME_KEY, string.Empty);
         DateTime lastStartDate = DateTime.ParseExact(serializedDateTime, "yyyy-MM-dd HH:mm:ss", null);
         TimeSpan timeDifference = nowDate - lastStartDate;
@@ -212,6 +210,7 @@ public class MemoryTime
         else
         {
             currentTime = time - (float)timeDifference.TotalSeconds;
+            isRunning = true;
         }
     }
     private bool IsOnline()
@@ -228,9 +227,9 @@ public class MemoryTime
     {
         if (currentTime > 3600)
             return TimeSpan.FromSeconds(Mathf.Floor(currentTime)).ToString(@"hh\:mm\:ss");
-        else if (currentTime > 59)
-            return TimeSpan.FromSeconds(Mathf.Floor(currentTime)).ToString(@"mm\:ss");
         else
-            return Mathf.Floor(currentTime).ToString();
+            return TimeSpan.FromSeconds(Mathf.Floor(currentTime)).ToString(@"mm\:ss");
+        //else
+        //    return Mathf.Floor(currentTime).ToString();
     }
 }
