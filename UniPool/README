@@ -1,0 +1,7 @@
+CREATE POOL
+
+ UniPool<Projectile> pool;
+ private void Start()
+ {
+     pool = new UniPool<Projectile>(projectilePrefab, 10, 10);        
+ }
