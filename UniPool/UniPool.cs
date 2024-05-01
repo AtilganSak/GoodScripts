@@ -30,7 +30,7 @@ namespace UnityPool
         LinkedList
     }
     [System.Serializable]
-    public class UniPool<T> where T : MonoBehaviour
+    public class UniPool<T> where T : Object
     {
         private MonoPoolItem poolObject;
         private IObjectPool<MonoPoolItem> pool;
