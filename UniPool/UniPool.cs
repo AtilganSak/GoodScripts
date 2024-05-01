@@ -63,7 +63,12 @@ namespace UnityPool
                 pool = new LinkedPool<MonoPoolItem>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, _collectionChecks, _maxSize);
             }
         }
+        public UniPool<T> SetParent(Transform transform)
+        {
+            parent = transform;
 
+            return this;
+        }
         /// <summary>
         /// This method returns the MonoPoolItem class by casting it to the generic class.
         /// </summary>        
