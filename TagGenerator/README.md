@@ -1,26 +1,17 @@
-# TweenComponentSystem-TCS-
+Go to 'Tools/Generate Tags' press and generate tags. 
 
-Helper components for those using the DOTween asset. You do not need to create a script to use DOTween. By using these components, you can make animations on your 3D scene, 2d scene or Canvas.
+After it will be created Tags.cs file in the 'Assets/_GameAssets/Scripts/Tags.cs'
 
-# DO Move
-![](https://github.com/AtilganSak/ProjectImages/blob/main/TweenComponentSystemImages/DOMove.png)
-# DO Scale
-![](https://github.com/AtilganSak/ProjectImages/blob/main/TweenComponentSystemImages/DOScale.png)
-# DO Rotate
-![](https://github.com/AtilganSak/ProjectImages/blob/main/TweenComponentSystemImages/DORotate.png)
-# DO Color
-![](https://github.com/AtilganSak/ProjectImages/blob/main/TweenComponentSystemImages/DOColor.png)
-# DO Fade
-![](https://github.com/AtilganSak/ProjectImages/blob/main/TweenComponentSystemImages/DOFade.png)
-# DO Fill
-![](https://github.com/AtilganSak/ProjectImages/blob/main/TweenComponentSystemImages/DOFill.png)
-# DO Path
-![](https://github.com/AtilganSak/ProjectImages/blob/main/TweenComponentSystemImages/DOPath.png)
-# DO Anchor
-![](https://github.com/AtilganSak/ProjectImages/blob/main/TweenComponentSystemImages/DOAnchor.png)
-# Listeners
-![](https://github.com/AtilganSak/ProjectImages/blob/main/TweenComponentSystemImages/AddListener.png)
-# DO Methods
-![](https://github.com/AtilganSak/ProjectImages/blob/main/TweenComponentSystemImages/DO.png)
-# Capsulated some parameters for set up on events on inspector.
-![](https://github.com/AtilganSak/ProjectImages/blob/main/TweenComponentSystemImages/Caplusate.png)
+You can change the URL from the TagsGenerator.cs
+``` C#
+32 - string filePath = "Assets/_GameAssets/Scripts/Tags.cs";
+```
+
+# Usage
+
+``` C#
+    if (other.CompareTag(Tags.DamageCollider))
+    {
+        \\DO something
+    }
+```
