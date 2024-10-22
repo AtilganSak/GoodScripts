@@ -1,3 +1,5 @@
+Firstly put the TagGenerator file in an Editor folder.
+
 Go to 'Tools/Generate Tags' press and generate tags. 
 
 After it will be created Tags.cs file in the 'Assets/_GameAssets/Scripts/Tags.cs'
